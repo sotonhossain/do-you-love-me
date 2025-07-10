@@ -1,28 +1,25 @@
-<script>
-  const yesBtn = document.querySelector(".yes-btn");
-  const noBtn = document.querySelector(".no-btn");
-
-  function yesClick() {
-    document.getElementById("result").innerHTML = "🎉 Congratulations! 👏";
-    document.getElementById("whatsapp").innerHTML = `
-      <p>Send your WhatsApp number:</p>
-      <input type="text" placeholder="+8801797215575" />
-    `;
-  }
-
-  function noClick() {
-    // শুধু টেক্সট বদলাবে, ফাংশন বদলাবে না
-    const yesText = yesBtn.innerHTML;
-    const noText = noBtn.innerHTML;
-
-    yesBtn.innerHTML = noText;
-    noBtn.innerHTML = yesText;
-
-    // শুধু রঙ বদলানো যাবে চাইলে
-    yesBtn.classList.toggle("yes-btn");
-    yesBtn.classList.toggle("no-btn");
-
-    noBtn.classList.toggle("yes-btn");
-    noBtn.classList.toggle("no-btn");
-  }
-</script>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love me?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes ✅</button>
+            <button id="noBtn">No ❌</button>
+        </div>
+        <div id="result" class="hidden">
+            <p>Congratulations 👏</p>
+            <p>WhatsApp Number: +8801797215575</p>
+            <input type="text" id="whatsappInput" placeholder="আপনার নম্বর দিন (ঐচ্ছিক)">
+            <button id="submitNumberBtn">জমা দিন</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
