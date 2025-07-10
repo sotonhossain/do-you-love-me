@@ -1,9 +1,3 @@
-<button class="yes-btn" onclick="yesClick()">Yes</button>
-<button class="no-btn" onclick="noClick()">No</button>
-
-<div id="result"></div>
-<div id="whatsapp"></div>
-
 <script>
   const yesBtn = document.querySelector(".yes-btn");
   const noBtn = document.querySelector(".no-btn");
@@ -17,14 +11,14 @@
   }
 
   function noClick() {
-    // বাটনের লেখা অদলবদল
+    // শুধু টেক্সট বদলাবে, ফাংশন বদলাবে না
     const yesText = yesBtn.innerHTML;
     const noText = noBtn.innerHTML;
 
     yesBtn.innerHTML = noText;
     noBtn.innerHTML = yesText;
 
-    // ক্লাস অদলবদল
+    // শুধু রঙ বদলানো যাবে চাইলে
     yesBtn.classList.toggle("yes-btn");
     yesBtn.classList.toggle("no-btn");
 
