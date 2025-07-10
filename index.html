@@ -1,25 +1,96 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me?</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #ffe6f0;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff0066;
+    }
+    .button-container {
+      margin-top: 30px;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 10px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+    #result {
+      margin-top: 40px;
+      font-size: 1.8em;
+      color: #0099cc;
+    }
+    #whatsapp {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
+      width: 80%;
+      max-width: 300px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Do you love me?</h1>
-        <div class="buttons">
-            <button id="yesBtn">Yes ✅</button>
-            <button id="noBtn">No ❌</button>
-        </div>
-        <div id="result" class="hidden">
-            <p>Congratulations 👏</p>
-            <p>WhatsApp Number: +8801797215575</p>
-            <input type="text" id="whatsappInput" placeholder="আপনার নম্বর দিন (ঐচ্ছিক)">
-            <button id="submitNumberBtn">জমা দিন</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+
+  <h1>Do you love me?</h1>
+  <div class="button-container">
+    <button class="yes-btn" onclick="yesClick()">Yes ✅</button>
+    <button class="no-btn" id="noBtn" onclick="noClick()">No ❌</button>
+  </div>
+
+  <div id="result"></div>
+  <div id="whatsapp"></div>
+
+  <script>
+    let noBtn = document.getElementById("noBtn");
+
+    function yesClick() {
+      document.getElementById("result").innerHTML = "🎉 Congratulations! 👏";
+      document.getElementById("whatsapp").innerHTML = `
+        <p>Send your WhatsApp number:</p>
+        <input type="text" placeholder="+8801797215575" />
+      `;
+    }
+
+    function noClick() {
+      let yes = document.querySelector(".yes-btn");
+      let no = document.querySelector(".no-btn");
+
+      const yesText = yes.innerHTML;
+      yes.innerHTML = no.innerHTML;
+      no.innerHTML = yesText;
+
+      yes.classList.toggle("yes-btn");
+      yes.classList.toggle("no-btn");
+      no.classList.toggle("yes-btn");
+      no.classList.toggle("no-btn");
+    }
+  </script>
+
 </body>
 </html>
